@@ -1,0 +1,222 @@
+/* Reset default styles */
+body, html, div, ul, li, a, button, input {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* General Styles */
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+button {
+  outline: none;
+  border: none;
+  cursor: pointer;
+}
+
+/* Full-Width Container */
+.full-width {
+  width: 100%;
+}
+
+/* Top Layer Styles */
+.top-layer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  background-color: #f8f9fa; /* Light background color */
+  border-bottom: 1px solid #ddd; /* Separator between top layer and navbar */
+  position: fixed; /* Sticks at the top */
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+}
+
+.logo-container img {
+  height: 50px; /* Adjust logo size */
+}
+
+.search-container {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.search-input {
+  padding: 8px 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  width: 300px; /* Adjust search bar width */
+  font-size: 14px;
+  transition: width 0.3s ease;
+}
+
+.search-button {
+  padding: 8px 16px;
+  background-color: #008489;
+  color: white;
+  font-size: 14px;
+  font-weight: bold;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.search-button:hover {
+  background-color: #005f6e;
+}
+
+/* Navbar Styles */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  background-color: #008489; /* Navbar background */
+  color: white;
+  position: fixed; /* Sticks below the top layer */
+  top: 70px; /* Adjust height based on the top layer */
+  left: 0;
+  width: 100%;
+  z-index: 999;
+}
+
+.navbar-links {
+  display: flex;
+  gap: 15px;
+  list-style: none;
+}
+
+.navbar-link {
+  color: white;
+  font-size: 14px;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.navbar-link:hover {
+  text-decoration: underline;
+}
+
+/* Dropdown Button */
+.categories-button {
+  background: none;
+  color: white;
+  border: none;
+  font-size: 14px;
+  font-weight: bold;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.dropdown-arrow {
+  font-size: 10px;
+}
+
+/* Dropdown Styles */
+.categories-dropdown {
+  position: absolute;
+  top: 100%; /* Position below the button */
+  left: 0;
+  background-color: white;
+  color: #008489;
+  list-style: none;
+  border: 1px solid #ddd;
+  padding: 10px;
+  margin: 0;
+  border-radius: 4px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  z-index: 1001;
+  min-width: 200px; /* Ensure consistent width for dropdown */
+}
+
+.dropdown-item {
+  padding: 8px 12px;
+  text-decoration: none;
+  color: #008489;
+  display: block;
+  font-size: 14px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.dropdown-item:hover {
+  background-color: #f8f9fa;
+  color: #005f6e;
+}
+
+/* Adjustments for Fixed Header */
+body {
+  padding-top: 130px; /* Ensure content doesn't overlap with header */
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .search-input {
+    width: 250px; /* Adjust search bar width for medium screens */
+  }
+
+  .navbar-links {
+    display: none; /* Hide navbar links on medium screens */
+  }
+
+  .categories-dropdown {
+    width: 100%; /* Full-width dropdown for better usability */
+  }
+
+  .top-layer, .navbar {
+    flex-wrap: wrap; /* Allow wrapping on smaller screens */
+    gap: 10px;
+  }
+
+  .navbar-categories {
+    width: 100%; /* Ensure dropdown buttons take full width */
+    text-align: center; /* Center-align items */
+  }
+}
+
+@media (max-width: 768px) {
+  .search-input {
+    width: 200px; /* Adjust search bar width for smaller screens */
+  }
+
+  .navbar-links {
+    display: none; /* Hide navbar links on smaller screens */
+  }
+
+  .categories-dropdown {
+    width: 100%; /* Full-width dropdown for better usability */
+  }
+  
+  .top-layer, .navbar {
+    flex-direction: column; /* Stack elements on smaller screens */
+    align-items: flex-start;
+  }
+}
+
+@media (max-width: 480px) {
+  .search-input {
+    width: 150px;
+  }
+
+  .top-layer, .navbar {
+    flex-direction: column; /* Stack elements on very small screens */
+    align-items: flex-start;
+  }
+
+  .categories-dropdown {
+    width: auto; /* Ensure dropdown adapts to content */
+  }
+
+  .search-container {
+    width: 100%; /* Ensure search bar takes full width */
+    justify-content: space-between; /* Space between input and button */
+  }
+}
