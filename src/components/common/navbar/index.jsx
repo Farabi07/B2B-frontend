@@ -1,10 +1,11 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import "./navbar.css"; // Import the CSS file
+import "./navbar.css"; 
+// import '@fortawesome/fontawesome-free/css/all.min.css';
 
 const Navbar = () => {
   const [showCategories, setShowCategories] = useState(false);
-  const [showDashboard, setShowDashboard] = useState(false); // State for Dashboard dropdown
+  const [showDashboard, setShowDashboard] = useState(false); 
 
   return (
     <header>
@@ -13,7 +14,7 @@ const Navbar = () => {
         <div className="logo-container">
           <Link to="/" className="navbar-logo">
             <img
-              src="/assets/images/b2b logo.webp" // Relative path for the public folder
+              src="/assets/images/b2b logo.webp" 
               alt="B2B Logo"
             />
           </Link>
@@ -27,6 +28,17 @@ const Navbar = () => {
           />
           <button className="search-button">Search</button>
         </div>
+        <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+  {/* User Icon */}
+  <i className="fa fa-user-o" aria-hidden="true" style={{ color: '#FFD700' }}></i>
+
+  {/* Notification Link with Bell Icon */}
+  <Link to="/notification" className="navbar-link">
+    <i className="fas fa-bell" style={{ color: '#FFD700' }}></i> {/* Bell Icon */}
+  </Link>
+</div>
+
+
       </div>
 
       {/* Navbar */}
@@ -58,6 +70,7 @@ const Navbar = () => {
                 </Link>
               </li>
             </ul>
+            
           )}
         </div>
 
@@ -91,11 +104,6 @@ const Navbar = () => {
           <li>
             <Link to="/" className="navbar-link">
               Home
-            </Link>
-          </li>
-          <li>
-            <Link to="/notification" className="navbar-link">
-              Notification
             </Link>
           </li>
         </ul>

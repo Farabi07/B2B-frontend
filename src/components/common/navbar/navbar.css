@@ -35,6 +35,7 @@ button {
   left: 0;
   width: 100%;
   z-index: 1000;
+  align-items: center;
 }
 
 .logo-container img {
@@ -45,6 +46,9 @@ button {
   display: flex;
   align-items: center;
   gap: 10px;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%); /* Centers the search bar */
 }
 
 .search-input {
@@ -53,7 +57,6 @@ button {
   border-radius: 4px;
   width: 300px; /* Adjust search bar width */
   font-size: 14px;
-  transition: width 0.3s ease;
 }
 
 .search-button {
@@ -74,22 +77,23 @@ button {
 
 /* Navbar Styles */
 .navbar {
+  padding: 10px 10px;
   display: flex;
-  justify-content: space-between;
+  /* justify-content: space-between; */
   align-items: center;
-  padding: 10px 20px;
-  background-color: #008489; /* Navbar background */
+  background-color: #008489; /* Navbar background updated */
   color: white;
   position: fixed; /* Sticks below the top layer */
   top: 70px; /* Adjust height based on the top layer */
   left: 0;
   width: 100%;
   z-index: 999;
+  gap : 10px;
 }
 
 .navbar-links {
   display: flex;
-  gap: 15px;
+  gap: 5px;
   list-style: none;
 }
 
@@ -98,23 +102,39 @@ button {
   font-size: 14px;
   text-decoration: none;
   transition: color 0.3s ease;
+
 }
 
 .navbar-link:hover {
   text-decoration: underline;
 }
 
+.navbar-link i {
+  font-size: 20px; /* Adjust the size of the bell icon */
+  color: white; /* Ensure the icon color is visible */
+  display: inline-block; /* Keep the icon always visible */
+  margin-right: 5px; /* Adjust spacing */
+  transition: color 0.3s ease; /* Smooth hover effect for color */
+ 
+}
+
+.navbar-link:hover i {
+  color: #f8c207; /* Optional: Change color on hover */
+}
+
 /* Dropdown Button */
 .categories-button {
-  background: none;
-  color: white;
+  background: white;
+  color: rgb(35, 105, 165);
   border: none;
   font-size: 14px;
   font-weight: bold;
   cursor: pointer;
   display: flex;
   align-items: center;
-  gap: 5px;
+  gap: 5px; /* Adjusted spacing */
+  width: 200px;
+  text-align: center;
 }
 
 .dropdown-arrow {
@@ -132,6 +152,7 @@ button {
   border: 1px solid #ddd;
   padding: 10px;
   margin: 0;
+  margin-top: 2px; /* Tightened gap between button and dropdown */
   border-radius: 4px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   z-index: 1001;
@@ -157,28 +178,27 @@ body {
   padding-top: 130px; /* Ensure content doesn't overlap with header */
 }
 
+/* Spacing Adjustments for Dashboard and Categories */
+.dashboard-container {
+  margin-bottom: 5px; /* Reduced gap between dashboard and categories */
+}
+
+.categories-container {
+  margin-top: 5px; /* Adjusted gap between dashboard and categories */
+}
+
+.dashboard-section {
+  padding-bottom: 5px; /* Reduced padding for compact layout */
+}
+
+.categories-section {
+  padding-top: 5px; /* Reduced padding above categories */
+}
+
 /* Responsive Design */
 @media (max-width: 1024px) {
   .search-input {
     width: 250px; /* Adjust search bar width for medium screens */
-  }
-
-  .navbar-links {
-    display: none; /* Hide navbar links on medium screens */
-  }
-
-  .categories-dropdown {
-    width: 100%; /* Full-width dropdown for better usability */
-  }
-
-  .top-layer, .navbar {
-    flex-wrap: wrap; /* Allow wrapping on smaller screens */
-    gap: 10px;
-  }
-
-  .navbar-categories {
-    width: 100%; /* Ensure dropdown buttons take full width */
-    text-align: center; /* Center-align items */
   }
 }
 
@@ -196,14 +216,14 @@ body {
   }
   
   .top-layer, .navbar {
-    flex-direction: column; /* Stack elements on smaller screens */
-    align-items: flex-start;
+    flex-wrap: wrap; /* Allow wrapping on smaller screens */
+    gap: 10px;
   }
 }
 
 @media (max-width: 480px) {
   .search-input {
-    width: 150px;
+    width: 150px; /* Adjust search bar width for very small screens */
   }
 
   .top-layer, .navbar {
@@ -213,10 +233,5 @@ body {
 
   .categories-dropdown {
     width: auto; /* Ensure dropdown adapts to content */
-  }
-
-  .search-container {
-    width: 100%; /* Ensure search bar takes full width */
-    justify-content: space-between; /* Space between input and button */
   }
 }
