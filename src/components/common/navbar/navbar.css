@@ -134,7 +134,7 @@ button {
   align-items: center;
   gap: 5px; /* Adjusted spacing */
   width: 200px;
-  text-align: center;
+  align-items: flex-start;
 }
 
 .dropdown-arrow {
